@@ -67,7 +67,7 @@ public class DistributionRouteRepositoryImpl implements IDistributionRouteReposi
         DistributionRouteDocument doc = new DistributionRouteDocument();
         doc.setId(domain.getId());
         doc.setOrganizationId(domain.getOrganizationId());
-        doc.setRouteCode(domain.getRouteCode());
+        //doc.setRouteCode(domain.getRouteCode());
         doc.setRouteName(domain.getRouteName());
         doc.setTotalEstimatedDuration(domain.getTotalEstimatedDuration());
         doc.setResponsibleUserId(domain.getResponsibleUserId());
@@ -92,7 +92,7 @@ public class DistributionRouteRepositoryImpl implements IDistributionRouteReposi
         return DistributionRoute.builder()
                 .id(doc.getId())
                 .organizationId(doc.getOrganizationId())
-                .routeCode(doc.getRouteCode())
+                //.routeCode(doc.getRouteCode())
                 .routeName(doc.getRouteName())
                 .totalEstimatedDuration(doc.getTotalEstimatedDuration())
                 .responsibleUserId(doc.getResponsibleUserId())

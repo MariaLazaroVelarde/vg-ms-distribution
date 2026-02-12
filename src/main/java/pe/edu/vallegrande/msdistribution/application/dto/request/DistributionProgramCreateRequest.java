@@ -11,7 +11,7 @@ import lombok.extern.jackson.Jacksonized;
 public class DistributionProgramCreateRequest {
     @NotBlank(message = "El ID de organización es obligatorio")
     private final String organizationId;
-    private final String programCode;
+    //private final String programCode;
     @NotBlank(message = "El ID de horario es obligatorio")
     private final String scheduleId;
     @NotBlank(message = "El ID de ruta es obligatorio")

@@ -10,7 +10,7 @@ import java.util.List;
 @Builder
 @Jacksonized
 public class DistributionRouteUpdateRequest {
-    private final String routeCode;
+    //private final String routeCode;
     private final String routeName;
     private final List<DistributionRouteCreateRequest.ZoneEntry> zones;
     private final Integer totalEstimatedDuration;

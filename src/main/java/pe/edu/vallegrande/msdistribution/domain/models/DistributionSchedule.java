@@ -13,7 +13,7 @@ public class DistributionSchedule {
 
     private String id;
     private String organizationId;
-    private String scheduleCode;
+    // private String scheduleCode;
     private String zoneId;
     private String streetId;
     private String scheduleName;

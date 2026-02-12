@@ -9,7 +9,7 @@ import lombok.extern.jackson.Jacksonized;
 @Jacksonized
 public class DistributionProgramUpdateRequest {
     private final String organizationId;
-    private final String programCode;
+    //private final String programCode;
     private final String scheduleId;
     private final String routeId;
     private final String zoneId;

@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class DistributionProgramResponse {
     private final String id;
     private final String organizationId;
-    private final String programCode;
+    //private final String programCode;
     private final String scheduleId;
     private final String routeId;
     private final String zoneId;

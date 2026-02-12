@@ -26,7 +26,7 @@ public class DistributionProgramDeletedEvent {
     // Datos del programa
     private String programId;
     private String organizationId;
-    private String programCode;
+    //private String programCode;
     
     // Razón de la eliminación
     private String reason;

@@ -27,7 +27,7 @@ public class DistributionProgramUpdatedEvent {
     // Datos del programa
     private String programId;
     private String organizationId;
-    private String programCode;
+    //private String programCode;
     
     // Campos que cambiaron
     private Map<String, Object> changedFields;

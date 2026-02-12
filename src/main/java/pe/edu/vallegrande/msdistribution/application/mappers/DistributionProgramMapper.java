@@ -14,7 +14,7 @@ public class DistributionProgramMapper {
     public DistributionProgram toDomain(DistributionProgramCreateRequest request) {
         return DistributionProgram.builder()
                 .organizationId(request.getOrganizationId())
-                .programCode(request.getProgramCode())
+                //.programCode(request.getProgramCode())
                 .scheduleId(request.getScheduleId())
                 .routeId(request.getRouteId())
                 .zoneId(request.getZoneId())
@@ -34,7 +34,7 @@ public class DistributionProgramMapper {
         return DistributionProgramResponse.builder()
                 .id(domain.getId())
                 .organizationId(domain.getOrganizationId())
-                .programCode(domain.getProgramCode())
+                //.programCode(domain.getProgramCode())
                 .scheduleId(domain.getScheduleId())
                 .routeId(domain.getRouteId())
                 .zoneId(domain.getZoneId())

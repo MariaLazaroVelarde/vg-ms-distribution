@@ -19,9 +19,9 @@ public class DistributionScheduleDocument extends BaseDocument {
     @Field("organization_id")
     private String organizationId;
 
-    @Indexed(unique = true)
-    @Field("schedule_code")
-    private String scheduleCode;
+    //@Indexed(unique = true)
+    //@Field("schedule_code")
+    //private String scheduleCode;
 
     @Field("zone_id")
     private String zoneId;

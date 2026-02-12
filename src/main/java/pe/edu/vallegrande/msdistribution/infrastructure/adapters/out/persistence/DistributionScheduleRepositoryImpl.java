@@ -65,7 +65,7 @@ public class DistributionScheduleRepositoryImpl implements IDistributionSchedule
         DistributionScheduleDocument doc = new DistributionScheduleDocument();
         doc.setId(domain.getId());
         doc.setOrganizationId(domain.getOrganizationId());
-        doc.setScheduleCode(domain.getScheduleCode());
+        //doc.setScheduleCode(domain.getScheduleCode());
         doc.setZoneId(domain.getZoneId());
         doc.setStreetId(domain.getStreetId());
         doc.setScheduleName(domain.getScheduleName());
@@ -85,7 +85,7 @@ public class DistributionScheduleRepositoryImpl implements IDistributionSchedule
         return DistributionSchedule.builder()
                 .id(doc.getId())
                 .organizationId(doc.getOrganizationId())
-                .scheduleCode(doc.getScheduleCode())
+                //.scheduleCode(doc.getScheduleCode())
                 .zoneId(doc.getZoneId())
                 .streetId(doc.getStreetId())
                 .scheduleName(doc.getScheduleName())

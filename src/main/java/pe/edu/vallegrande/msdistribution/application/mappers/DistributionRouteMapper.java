@@ -15,7 +15,7 @@ public class DistributionRouteMapper {
     public DistributionRoute toDomain(DistributionRouteCreateRequest request) {
         return DistributionRoute.builder()
                 .organizationId(request.getOrganizationId())
-                .routeCode(request.getRouteCode())
+                //.routeCode(request.getRouteCode())
                 .routeName(request.getRouteName())
                 .zones(request.getZones() != null ? request.getZones().stream()
                         .map(z -> DistributionRoute.ZoneOrder.builder()
@@ -36,7 +36,7 @@ public class DistributionRouteMapper {
         return DistributionRouteResponse.builder()
                 .id(domain.getId())
                 .organizationId(domain.getOrganizationId())
-                .routeCode(domain.getRouteCode())
+                //.routeCode(domain.getRouteCode())
                 .routeName(domain.getRouteName())
                 .zones(domain.getZones() != null ? domain.getZones().stream()
                         .map(z -> DistributionRouteResponse.ZoneOrderResponse.builder()

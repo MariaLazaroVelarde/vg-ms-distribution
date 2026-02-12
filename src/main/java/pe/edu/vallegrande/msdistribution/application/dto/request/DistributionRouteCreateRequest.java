@@ -16,7 +16,7 @@ import java.util.List;
 public class DistributionRouteCreateRequest {
     @NotBlank(message = "El ID de organización es obligatorio")
     private final String organizationId;
-    private final String routeCode;
+    //private final String routeCode;
     @NotBlank(message = "El nombre de ruta es obligatorio")
     private final String routeName;
     @NotEmpty(message = "Debe incluir al menos una zona")

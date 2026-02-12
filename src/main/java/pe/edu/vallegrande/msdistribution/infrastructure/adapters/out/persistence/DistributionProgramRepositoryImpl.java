@@ -70,7 +70,7 @@ public class DistributionProgramRepositoryImpl implements IDistributionProgramRe
         DistributionProgramDocument doc = new DistributionProgramDocument();
         doc.setId(domain.getId());
         doc.setOrganizationId(domain.getOrganizationId());
-        doc.setProgramCode(domain.getProgramCode());
+        //doc.setProgramCode(domain.getProgramCode());
         doc.setScheduleId(domain.getScheduleId());
         doc.setRouteId(domain.getRouteId());
         doc.setZoneId(domain.getZoneId());
@@ -94,7 +94,7 @@ public class DistributionProgramRepositoryImpl implements IDistributionProgramRe
         return DistributionProgram.builder()
                 .id(doc.getId())
                 .organizationId(doc.getOrganizationId())
-                .programCode(doc.getProgramCode())
+                //.programCode(doc.getProgramCode())
                 .scheduleId(doc.getScheduleId())
                 .routeId(doc.getRouteId())
                 .zoneId(doc.getZoneId())

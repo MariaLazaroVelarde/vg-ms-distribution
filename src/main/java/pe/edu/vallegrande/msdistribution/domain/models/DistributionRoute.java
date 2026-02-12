@@ -13,7 +13,7 @@ public class DistributionRoute {
 
     private String id;
     private String organizationId;
-    private String routeCode;
+    // private String routeCode;
     private String routeName;
     private List<ZoneOrder> zones;
     private int totalEstimatedDuration;

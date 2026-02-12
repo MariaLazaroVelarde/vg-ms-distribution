@@ -12,7 +12,7 @@ public class DistributionProgram {
 
     private String id;
     private String organizationId;
-    private String programCode;
+    // private String programCode;
     private String scheduleId;
     private String routeId;
     private String zoneId;

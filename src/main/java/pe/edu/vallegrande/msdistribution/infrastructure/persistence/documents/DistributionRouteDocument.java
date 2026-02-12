@@ -19,9 +19,9 @@ public class DistributionRouteDocument extends BaseDocument {
     @Field("organization_id")
     private String organizationId;
 
-    @Indexed(unique = true)
-    @Field("route_code")
-    private String routeCode;
+    //@Indexed(unique = true)
+    //@Field("route_code")
+    //private String routeCode;
 
     @Field("route_name")
     private String routeName;

@@ -26,7 +26,7 @@ public class DistributionProgramCreatedEvent {
     // Datos del programa
     private String programId;
     private String organizationId;
-    private String programCode;
+    //private String programCode;
     private String programName;
     private String description;
     
