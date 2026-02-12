@@ -12,7 +12,5 @@ public interface IDistributionProgramRepository {
     Flux<DistributionProgram> findAll();
     Flux<DistributionProgram> findByRecordStatus(RecordStatus status);
     Flux<DistributionProgram> findByOrganizationId(String organizationId);
-    Mono<DistributionProgram> findByProgramCode(String programCode);
-    Mono<Boolean> existsByProgramCode(String programCode);
     Mono<Void> deleteById(String id);
 }

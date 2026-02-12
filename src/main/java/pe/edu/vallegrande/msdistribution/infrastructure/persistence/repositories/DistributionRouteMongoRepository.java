@@ -8,6 +8,4 @@ import reactor.core.publisher.Mono;
 public interface DistributionRouteMongoRepository extends ReactiveMongoRepository<DistributionRouteDocument, String> {
     Flux<DistributionRouteDocument> findAllByRecordStatus(String recordStatus);
     Flux<DistributionRouteDocument> findByOrganizationId(String organizationId);
-    //Mono<DistributionRouteDocument> findByRouteCode(String routeCode);
-    Mono<Boolean> existsByRouteCode(String routeCode);
 }

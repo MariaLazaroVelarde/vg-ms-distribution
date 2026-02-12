@@ -13,7 +13,6 @@ public class DistributionSchedule {
 
     private String id;
     private String organizationId;
-    // private String scheduleCode;
     private String zoneId;
     private String streetId;
     private String scheduleName;
@@ -59,7 +58,6 @@ public class DistributionSchedule {
                 .updatedAt(LocalDateTime.now())
                 .updatedBy(updatedBy);
 
-        if (changes.getScheduleCode() != null) builder.scheduleCode(changes.getScheduleCode());
         if (changes.getZoneId() != null) builder.zoneId(changes.getZoneId());
         if (changes.getStreetId() != null) builder.streetId(changes.getStreetId());
         if (changes.getScheduleName() != null) builder.scheduleName(changes.getScheduleName());

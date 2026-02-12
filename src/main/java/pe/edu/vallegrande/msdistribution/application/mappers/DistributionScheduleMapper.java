@@ -14,7 +14,6 @@ public class DistributionScheduleMapper {
     public DistributionSchedule toDomain(DistributionScheduleCreateRequest request) {
         return DistributionSchedule.builder()
                 .organizationId(request.getOrganizationId())
-                //.scheduleCode(request.getScheduleCode())
                 .zoneId(request.getZoneId())
                 .streetId(request.getStreetId())
                 .scheduleName(request.getScheduleName())
@@ -32,7 +31,6 @@ public class DistributionScheduleMapper {
         return DistributionScheduleResponse.builder()
                 .id(domain.getId())
                 .organizationId(domain.getOrganizationId())
-                //.scheduleCode(domain.getScheduleCode())
                 .zoneId(domain.getZoneId())
                 .streetId(domain.getStreetId())
                 .scheduleName(domain.getScheduleName())

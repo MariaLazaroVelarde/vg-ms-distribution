@@ -50,16 +50,6 @@ public class DistributionProgramRepositoryImpl implements IDistributionProgramRe
     }
 
     @Override
-    public Mono<DistributionProgram> findByProgramCode(String programCode) {
-        return mongoRepository.findByProgramCode(programCode).map(this::toDomain);
-    }
-
-    @Override
-    public Mono<Boolean> existsByProgramCode(String programCode) {
-        return mongoRepository.existsByProgramCode(programCode);
-    }
-
-    @Override
     public Mono<Void> deleteById(String id) {
         return mongoRepository.deleteById(id);
     }
@@ -70,7 +60,6 @@ public class DistributionProgramRepositoryImpl implements IDistributionProgramRe
         DistributionProgramDocument doc = new DistributionProgramDocument();
         doc.setId(domain.getId());
         doc.setOrganizationId(domain.getOrganizationId());
-        //doc.setProgramCode(domain.getProgramCode());
         doc.setScheduleId(domain.getScheduleId());
         doc.setRouteId(domain.getRouteId());
         doc.setZoneId(domain.getZoneId());
@@ -94,7 +83,6 @@ public class DistributionProgramRepositoryImpl implements IDistributionProgramRe
         return DistributionProgram.builder()
                 .id(doc.getId())
                 .organizationId(doc.getOrganizationId())
-                //.programCode(doc.getProgramCode())
                 .scheduleId(doc.getScheduleId())
                 .routeId(doc.getRouteId())
                 .zoneId(doc.getZoneId())

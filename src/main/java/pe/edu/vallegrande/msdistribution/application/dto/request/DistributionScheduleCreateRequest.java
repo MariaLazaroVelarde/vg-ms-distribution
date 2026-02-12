@@ -13,7 +13,6 @@ import java.util.List;
 public class DistributionScheduleCreateRequest {
     @NotBlank(message = "El ID de organización es obligatorio")
     private final String organizationId;
-    //private final String scheduleCode;
     @NotBlank(message = "El ID de zona es obligatorio")
     private final String zoneId;
     private final String streetId;

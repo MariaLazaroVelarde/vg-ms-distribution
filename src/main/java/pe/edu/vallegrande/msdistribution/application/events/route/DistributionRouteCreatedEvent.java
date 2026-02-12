@@ -12,18 +12,17 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DistributionRouteCreatedEvent {
-    
+
     @Builder.Default
     private String eventType = "DISTRIBUTION_ROUTE_CREATED";
-    
+
     private String eventId;
     private LocalDateTime timestamp;
     private String correlationId;
-    
+
     private String routeId;
     private String organizationId;
     private String routeName;
-    private String description;
-    
+
     private String createdBy;
 }

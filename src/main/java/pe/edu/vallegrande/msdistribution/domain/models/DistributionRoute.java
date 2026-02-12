@@ -13,7 +13,6 @@ public class DistributionRoute {
 
     private String id;
     private String organizationId;
-    // private String routeCode;
     private String routeName;
     private List<ZoneOrder> zones;
     private int totalEstimatedDuration;
@@ -56,7 +55,6 @@ public class DistributionRoute {
                 .updatedAt(LocalDateTime.now())
                 .updatedBy(updatedBy);
 
-        if (changes.getRouteCode() != null) builder.routeCode(changes.getRouteCode());
         if (changes.getRouteName() != null) builder.routeName(changes.getRouteName());
         if (changes.getZones() != null) builder.zones(changes.getZones());
         if (changes.getResponsibleUserId() != null) builder.responsibleUserId(changes.getResponsibleUserId());

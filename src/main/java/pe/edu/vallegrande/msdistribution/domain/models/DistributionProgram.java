@@ -12,7 +12,6 @@ public class DistributionProgram {
 
     private String id;
     private String organizationId;
-    // private String programCode;
     private String scheduleId;
     private String routeId;
     private String zoneId;
@@ -41,10 +40,6 @@ public class DistributionProgram {
         return recordStatus == RecordStatus.INACTIVE;
     }
 
-    public boolean isSuspended() {
-        return recordStatus == RecordStatus.SUSPENDED;
-    }
-
     public DistributionProgram markAsDeleted(String deletedBy) {
         return this.toBuilder()
                 .recordStatus(RecordStatus.INACTIVE)
@@ -67,7 +62,6 @@ public class DistributionProgram {
                 .updatedBy(updatedBy);
 
         if (changes.getOrganizationId() != null) builder.organizationId(changes.getOrganizationId());
-        if (changes.getProgramCode() != null) builder.programCode(changes.getProgramCode());
         if (changes.getScheduleId() != null) builder.scheduleId(changes.getScheduleId());
         if (changes.getRouteId() != null) builder.routeId(changes.getRouteId());
         if (changes.getZoneId() != null) builder.zoneId(changes.getZoneId());

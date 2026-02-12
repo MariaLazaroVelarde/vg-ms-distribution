@@ -11,7 +11,6 @@ import java.util.List;
 public class DistributionRouteResponse {
     private final String id;
     private final String organizationId;
-    //private final String routeCode;
     private final String routeName;
     private final List<ZoneOrderResponse> zones;
     private final int totalEstimatedDuration;

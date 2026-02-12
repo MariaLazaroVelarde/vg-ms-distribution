@@ -47,16 +47,6 @@ public class DistributionScheduleRepositoryImpl implements IDistributionSchedule
     }
 
     @Override
-    public Mono<DistributionSchedule> findByScheduleCode(String scheduleCode) {
-        return mongoRepository.findByScheduleCode(scheduleCode).map(this::toDomain);
-    }
-
-    @Override
-    public Mono<Boolean> existsByScheduleCode(String scheduleCode) {
-        return mongoRepository.existsByScheduleCode(scheduleCode);
-    }
-
-    @Override
     public Mono<Void> deleteById(String id) {
         return mongoRepository.deleteById(id);
     }
@@ -65,7 +55,6 @@ public class DistributionScheduleRepositoryImpl implements IDistributionSchedule
         DistributionScheduleDocument doc = new DistributionScheduleDocument();
         doc.setId(domain.getId());
         doc.setOrganizationId(domain.getOrganizationId());
-        //doc.setScheduleCode(domain.getScheduleCode());
         doc.setZoneId(domain.getZoneId());
         doc.setStreetId(domain.getStreetId());
         doc.setScheduleName(domain.getScheduleName());
@@ -85,7 +74,6 @@ public class DistributionScheduleRepositoryImpl implements IDistributionSchedule
         return DistributionSchedule.builder()
                 .id(doc.getId())
                 .organizationId(doc.getOrganizationId())
-                //.scheduleCode(doc.getScheduleCode())
                 .zoneId(doc.getZoneId())
                 .streetId(doc.getStreetId())
                 .scheduleName(doc.getScheduleName())

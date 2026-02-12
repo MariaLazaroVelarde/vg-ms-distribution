@@ -21,15 +21,15 @@ import java.util.UUID;
 @Component
 @RequiredArgsConstructor
 public class DistributionRouteEventPublisherImpl implements IDistributionRouteEventPublisher {
-    
+
     private static final String EXCHANGE = "jass.events";
     private static final String ROUTING_KEY_CREATED = "distribution.route.created";
     private static final String ROUTING_KEY_UPDATED = "distribution.route.updated";
     private static final String ROUTING_KEY_DELETED = "distribution.route.deleted";
     private static final String ROUTING_KEY_RESTORED = "distribution.route.restored";
-    
+
     private final RabbitTemplate rabbitTemplate;
-    
+
     @Override
     public Mono<Void> publishRouteCreated(DistributionRoute route, String createdBy) {
         return Mono.fromRunnable(() -> {
@@ -40,15 +40,14 @@ public class DistributionRouteEventPublisherImpl implements IDistributionRouteEv
                     .routeId(route.getId())
                     .organizationId(route.getOrganizationId())
                     .routeName(route.getRouteName())
-                    .description(route.getDescription())
                     .createdBy(createdBy)
                     .build();
-            
+
             rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY_CREATED, event);
             log.info("Published distribution.route.created event for route: {}", route.getId());
         });
     }
-    
+
     @Override
     public Mono<Void> publishRouteUpdated(DistributionRoute route, Map<String, Object> changedFields, String updatedBy) {
         return Mono.fromRunnable(() -> {
@@ -61,12 +60,12 @@ public class DistributionRouteEventPublisherImpl implements IDistributionRouteEv
                     .changedFields(changedFields)
                     .updatedBy(updatedBy)
                     .build();
-            
+
             rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY_UPDATED, event);
             log.info("Published distribution.route.updated event for route: {}", route.getId());
         });
     }
-    
+
     @Override
     public Mono<Void> publishRouteDeleted(String routeId, String deletedBy, String reason) {
         return Mono.fromRunnable(() -> {
@@ -78,12 +77,12 @@ public class DistributionRouteEventPublisherImpl implements IDistributionRouteEv
                     .reason(reason)
                     .deletedBy(deletedBy)
                     .build();
-            
+
             rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY_DELETED, event);
             log.info("Published distribution.route.deleted event for route: {}", routeId);
         });
     }
-    
+
     @Override
     public Mono<Void> publishRouteRestored(String routeId, String restoredBy) {
         return Mono.fromRunnable(() -> {
@@ -94,7 +93,7 @@ public class DistributionRouteEventPublisherImpl implements IDistributionRouteEv
                     .routeId(routeId)
                     .restoredBy(restoredBy)
                     .build();
-            
+
             rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY_RESTORED, event);
             log.info("Published distribution.route.restored event for route: {}", routeId);
         });

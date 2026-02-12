@@ -12,7 +12,5 @@ public interface IDistributionRouteRepository {
     Flux<DistributionRoute> findAll();
     Flux<DistributionRoute> findByRecordStatus(RecordStatus status);
     Flux<DistributionRoute> findByOrganizationId(String organizationId);
-    Mono<DistributionRoute> findByRouteCode(String routeCode);
-    Mono<Boolean> existsByRouteCode(String routeCode);
     Mono<Void> deleteById(String id);
 }

@@ -21,15 +21,15 @@ import java.util.UUID;
 @Component
 @RequiredArgsConstructor
 public class DistributionScheduleEventPublisherImpl implements IDistributionScheduleEventPublisher {
-    
+
     private static final String EXCHANGE = "jass.events";
     private static final String ROUTING_KEY_CREATED = "distribution.schedule.created";
     private static final String ROUTING_KEY_UPDATED = "distribution.schedule.updated";
     private static final String ROUTING_KEY_DELETED = "distribution.schedule.deleted";
     private static final String ROUTING_KEY_RESTORED = "distribution.schedule.restored";
-    
+
     private final RabbitTemplate rabbitTemplate;
-    
+
     @Override
     public Mono<Void> publishScheduleCreated(DistributionSchedule schedule, String createdBy) {
         return Mono.fromRunnable(() -> {
@@ -40,15 +40,15 @@ public class DistributionScheduleEventPublisherImpl implements IDistributionSche
                     .scheduleId(schedule.getId())
                     .organizationId(schedule.getOrganizationId())
                     .zoneId(schedule.getZoneId())
-                    .dayOfWeek(schedule.getDayOfWeek())
+                    .daysOfWeek(schedule.getDaysOfWeek())
                     .createdBy(createdBy)
                     .build();
-            
+
             rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY_CREATED, event);
             log.info("Published distribution.schedule.created event for schedule: {}", schedule.getId());
         });
     }
-    
+
     @Override
     public Mono<Void> publishScheduleUpdated(DistributionSchedule schedule, Map<String, Object> changedFields, String updatedBy) {
         return Mono.fromRunnable(() -> {
@@ -61,12 +61,12 @@ public class DistributionScheduleEventPublisherImpl implements IDistributionSche
                     .changedFields(changedFields)
                     .updatedBy(updatedBy)
                     .build();
-            
+
             rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY_UPDATED, event);
             log.info("Published distribution.schedule.updated event for schedule: {}", schedule.getId());
         });
     }
-    
+
     @Override
     public Mono<Void> publishScheduleDeleted(String scheduleId, String deletedBy, String reason) {
         return Mono.fromRunnable(() -> {
@@ -78,12 +78,12 @@ public class DistributionScheduleEventPublisherImpl implements IDistributionSche
                     .reason(reason)
                     .deletedBy(deletedBy)
                     .build();
-            
+
             rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY_DELETED, event);
             log.info("Published distribution.schedule.deleted event for schedule: {}", scheduleId);
         });
     }
-    
+
     @Override
     public Mono<Void> publishScheduleRestored(String scheduleId, String restoredBy) {
         return Mono.fromRunnable(() -> {
@@ -94,7 +94,7 @@ public class DistributionScheduleEventPublisherImpl implements IDistributionSche
                     .scheduleId(scheduleId)
                     .restoredBy(restoredBy)
                     .build();
-            
+
             rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY_RESTORED, event);
             log.info("Published distribution.schedule.restored event for schedule: {}", scheduleId);
         });

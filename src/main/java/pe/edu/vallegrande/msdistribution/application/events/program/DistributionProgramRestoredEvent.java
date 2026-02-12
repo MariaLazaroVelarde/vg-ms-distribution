@@ -15,19 +15,16 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DistributionProgramRestoredEvent {
-    
+
     @Builder.Default
     private String eventType = "DISTRIBUTION_PROGRAM_RESTORED";
-    
+
     private String eventId;
     private LocalDateTime timestamp;
     private String correlationId;
-    
-    // Datos del programa
+
     private String programId;
     private String organizationId;
-    //private String programCode;
-    
-    // Auditoría
+
     private String restoredBy;
 }

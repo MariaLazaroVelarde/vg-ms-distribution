@@ -11,7 +11,6 @@ import java.util.List;
 public class DistributionScheduleResponse {
     private final String id;
     private final String organizationId;
-    //private final String scheduleCode;
     private final String zoneId;
     private final String streetId;
     private final String scheduleName;

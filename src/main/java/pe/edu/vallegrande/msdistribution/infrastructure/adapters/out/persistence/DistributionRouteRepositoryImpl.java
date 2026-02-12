@@ -49,16 +49,6 @@ public class DistributionRouteRepositoryImpl implements IDistributionRouteReposi
     }
 
     @Override
-    public Mono<DistributionRoute> findByRouteCode(String routeCode) {
-        return mongoRepository.findByRouteCode(routeCode).map(this::toDomain);
-    }
-
-    @Override
-    public Mono<Boolean> existsByRouteCode(String routeCode) {
-        return mongoRepository.existsByRouteCode(routeCode);
-    }
-
-    @Override
     public Mono<Void> deleteById(String id) {
         return mongoRepository.deleteById(id);
     }
@@ -67,7 +57,6 @@ public class DistributionRouteRepositoryImpl implements IDistributionRouteReposi
         DistributionRouteDocument doc = new DistributionRouteDocument();
         doc.setId(domain.getId());
         doc.setOrganizationId(domain.getOrganizationId());
-        //doc.setRouteCode(domain.getRouteCode());
         doc.setRouteName(domain.getRouteName());
         doc.setTotalEstimatedDuration(domain.getTotalEstimatedDuration());
         doc.setResponsibleUserId(domain.getResponsibleUserId());
@@ -92,7 +81,6 @@ public class DistributionRouteRepositoryImpl implements IDistributionRouteReposi
         return DistributionRoute.builder()
                 .id(doc.getId())
                 .organizationId(doc.getOrganizationId())
-                //.routeCode(doc.getRouteCode())
                 .routeName(doc.getRouteName())
                 .totalEstimatedDuration(doc.getTotalEstimatedDuration())
                 .responsibleUserId(doc.getResponsibleUserId())

@@ -8,6 +8,4 @@ import reactor.core.publisher.Mono;
 public interface DistributionScheduleMongoRepository extends ReactiveMongoRepository<DistributionScheduleDocument, String> {
     Flux<DistributionScheduleDocument> findAllByRecordStatus(String recordStatus);
     Flux<DistributionScheduleDocument> findByOrganizationId(String organizationId);
-    //Mono<DistributionScheduleDocument> findByScheduleCode(String scheduleCode);
-    Mono<Boolean> existsByScheduleCode(String scheduleCode);
 }

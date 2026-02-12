@@ -21,15 +21,15 @@ import java.util.UUID;
 @Component
 @RequiredArgsConstructor
 public class DistributionProgramEventPublisherImpl implements IDistributionProgramEventPublisher {
-    
+
     private static final String EXCHANGE = "jass.events";
     private static final String ROUTING_KEY_CREATED = "distribution.program.created";
     private static final String ROUTING_KEY_UPDATED = "distribution.program.updated";
     private static final String ROUTING_KEY_DELETED = "distribution.program.deleted";
     private static final String ROUTING_KEY_RESTORED = "distribution.program.restored";
-    
+
     private final RabbitTemplate rabbitTemplate;
-    
+
     @Override
     public Mono<Void> publishProgramCreated(DistributionProgram program, String createdBy) {
         return Mono.fromRunnable(() -> {
@@ -39,17 +39,14 @@ public class DistributionProgramEventPublisherImpl implements IDistributionProgr
                     .correlationId(UUID.randomUUID().toString())
                     .programId(program.getId())
                     .organizationId(program.getOrganizationId())
-                    .programCode(program.getProgramCode())
-                    .programName(program.getProgramName())
-                    .description(program.getDescription())
                     .createdBy(createdBy)
                     .build();
-            
+
             rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY_CREATED, event);
             log.info("Published distribution.program.created event for program: {}", program.getId());
         });
     }
-    
+
     @Override
     public Mono<Void> publishProgramUpdated(DistributionProgram program, Map<String, Object> changedFields, String updatedBy) {
         return Mono.fromRunnable(() -> {
@@ -59,16 +56,15 @@ public class DistributionProgramEventPublisherImpl implements IDistributionProgr
                     .correlationId(UUID.randomUUID().toString())
                     .programId(program.getId())
                     .organizationId(program.getOrganizationId())
-                    .programCode(program.getProgramCode())
                     .changedFields(changedFields)
                     .updatedBy(updatedBy)
                     .build();
-            
+
             rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY_UPDATED, event);
             log.info("Published distribution.program.updated event for program: {}", program.getId());
         });
     }
-    
+
     @Override
     public Mono<Void> publishProgramDeleted(String programId, String deletedBy, String reason) {
         return Mono.fromRunnable(() -> {
@@ -80,12 +76,12 @@ public class DistributionProgramEventPublisherImpl implements IDistributionProgr
                     .reason(reason)
                     .deletedBy(deletedBy)
                     .build();
-            
+
             rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY_DELETED, event);
             log.info("Published distribution.program.deleted event for program: {}", programId);
         });
     }
-    
+
     @Override
     public Mono<Void> publishProgramRestored(String programId, String restoredBy) {
         return Mono.fromRunnable(() -> {
@@ -96,7 +92,7 @@ public class DistributionProgramEventPublisherImpl implements IDistributionProgr
                     .programId(programId)
                     .restoredBy(restoredBy)
                     .build();
-            
+
             rabbitTemplate.convertAndSend(EXCHANGE, ROUTING_KEY_RESTORED, event);
             log.info("Published distribution.program.restored event for program: {}", programId);
         });

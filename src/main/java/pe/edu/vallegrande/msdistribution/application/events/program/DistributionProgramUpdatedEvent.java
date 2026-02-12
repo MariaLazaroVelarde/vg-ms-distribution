@@ -16,22 +16,18 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DistributionProgramUpdatedEvent {
-    
+
     @Builder.Default
     private String eventType = "DISTRIBUTION_PROGRAM_UPDATED";
-    
+
     private String eventId;
     private LocalDateTime timestamp;
     private String correlationId;
-    
-    // Datos del programa
+
     private String programId;
     private String organizationId;
-    //private String programCode;
-    
-    // Campos que cambiaron
+
     private Map<String, Object> changedFields;
-    
-    // Auditoría
+
     private String updatedBy;
 }

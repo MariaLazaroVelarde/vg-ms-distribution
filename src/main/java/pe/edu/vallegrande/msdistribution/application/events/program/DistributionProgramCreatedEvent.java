@@ -15,21 +15,16 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DistributionProgramCreatedEvent {
-    
+
     @Builder.Default
     private String eventType = "DISTRIBUTION_PROGRAM_CREATED";
-    
+
     private String eventId;
     private LocalDateTime timestamp;
     private String correlationId;
-    
-    // Datos del programa
+
     private String programId;
     private String organizationId;
-    //private String programCode;
-    private String programName;
-    private String description;
-    
-    // Auditoría
+
     private String createdBy;
 }

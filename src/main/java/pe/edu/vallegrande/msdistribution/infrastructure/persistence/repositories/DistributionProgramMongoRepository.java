@@ -3,11 +3,8 @@ package pe.edu.vallegrande.msdistribution.infrastructure.persistence.repositorie
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import pe.edu.vallegrande.msdistribution.infrastructure.persistence.documents.DistributionProgramDocument;
 import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
 
 public interface DistributionProgramMongoRepository extends ReactiveMongoRepository<DistributionProgramDocument, String> {
     Flux<DistributionProgramDocument> findAllByRecordStatus(String recordStatus);
     Flux<DistributionProgramDocument> findByOrganizationId(String organizationId);
-    //Mono<DistributionProgramDocument> findByProgramCode(String programCode);
-    Mono<Boolean> existsByProgramCode(String programCode);
 }

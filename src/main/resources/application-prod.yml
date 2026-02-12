@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: ${MONGODB_URI}            # Lee de variable de entorno
+      uri: ${MONGODB_URI}
   rabbitmq:
     host: ${RABBITMQ_HOST}
     port: ${RABBITMQ_PORT:5672}
@@ -12,4 +12,10 @@ spring:
 logging:
   level:
     root: INFO
-    pe.edu.vallegrande.msdistribution: INFO  # Solo logs importantes
+    pe.edu.vallegrande.msdistribution: INFO
+
+springdoc:
+     api-docs:
+          enabled: false
+     swagger-ui:
+          enabled: false
