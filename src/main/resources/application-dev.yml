@@ -1,0 +1,17 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/db_jass_distribution
+      auto-index-creation: true      # Crear índices automáticamente
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+logging:
+  level:
+    root: INFO
+    pe.edu.vallegrande.msdistribution: DEBUG        # Logs detallados del proyecto
+    org.springframework.data.mongodb: DEBUG         # Logs de MongoDB
+    org.springframework.amqp: DEBUG                 # Logs de RabbitMQ

@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: vg-ms-distribution        # Nombre del microservicio
+  profiles:
+    active: dev                      # Perfil activo por defecto (desarrollo)
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss # Formato de fechas en JSON
+    time-zone: UTC                   # Zona horaria UTC
+  main:
+    allow-bean-definition-overriding: true
+
+server:
+  port: 8084                         # Puerto del servidor (8084 para distribution)
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus  # Endpoints de Actuator
+  endpoint:
+    health:
+      show-details: always           # Mostrar detalles de health check
+      probes:
+        enabled: true                # Habilitar probes de Kubernetes
+  health:
+    mongo:
+      enabled: true                  # Health check de MongoDB
+    rabbit:
+      enabled: true                  # Health check de RabbitMQ
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs               # Ruta de documentación OpenAPI
+  swagger-ui:
+    path: /swagger-ui.html           # Ruta de Swagger UI
+    operations-sorter: alpha         # Ordenar operaciones alfabéticamente
+    tags-sorter: alpha               # Ordenar tags alfabéticamente
